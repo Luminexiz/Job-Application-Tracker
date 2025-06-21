@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World App</title>
+  </head>
+  <body>
+    <h1 id="message">Loading...</h1>
+
+    <script>
+      fetch("/api/hello")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("message").innerText = data.message;
+        })
+        .catch((err) => {
+          console.error(err);
+          document.getElementById("message").innerText =
+            "Failed to load message";
+        });
+    </script>
+  </body>
+</html>
