@@ -10,8 +10,8 @@ app.get('/api/hello', (req, res) => {
     res.json({ message: 'Hello World' });
 });
 
-// Start server
-app.get('*', (req, res) => {
+// Fallback to frontend for unknown routes
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'frontend/index.html'));
 });
 
