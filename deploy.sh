@@ -1,17 +1,20 @@
 #!/bin/bash
 
-# Replace with your EC2 public IP and .pem path
-EC2_USER=ubuntu
-EC2_IP=3.144.17.159
-PEM_PATH="D:\Masters\CalPolyPomona\CS5800 Adv Software Engineering\aws-key.pem"
-PROJECT_DIR=/home/ubuntu/Job-Application-Tracker
+echo "🚀 Starting Deployment from GitHub..."
 
-echo "Connecting to EC2 and deploying..."
+# Navigate to your project folder
+cd ~/Job-Application-Tracker
 
-ssh -i "$PEM_PATH" $EC2_USER@$EC2_IP << EOF
-  cd $PROJECT_DIR
-  git pull origin main
-  pm2 restart server.js
-EOF
+# Pull the latest code
+echo "📥 Pulling latest code from GitHub..."
+git pull origin main
 
-echo "✅ Deployment Complete!"
+# Install/update dependencies (optional)
+echo "📦 Installing dependencies..."
+npm install
+
+# Restart your Node.js server using PM2
+echo "🔁 Restarting server with PM2..."
+pm2 restart server.js
+
+echo "✅ Deployment complete!"
