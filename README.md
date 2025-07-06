@@ -5,3 +5,5 @@
 2. Run tests
 
 Tests are located in the `__tests__` folder and use Jest.
+
+Deployed using GitHub Actions
