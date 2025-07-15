@@ -666,6 +666,9 @@ ul {
 
 .footer h3 {
   font-size: 15px;
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   color: #fff;
   display: block;
   top: 25%;
@@ -675,6 +678,9 @@ ul {
 
 .footer-col h4 {
   font-size: 18px;
+  font-family: "Faustina", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   color: #fff;
   text-transform: capitalize;
   margin-bottom: 35px;
@@ -699,6 +705,9 @@ ul {
 
 .footer-col ul li a {
   font-size: 16px;
+  font-family: "Faustina", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   text-transform: capitalize;
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -715,6 +724,9 @@ ul {
 
 .footer h6 {
   font-size: 5px;
+  font-family: "Faustina", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   color: #fff;
   text-align: center;
   top: 97%;
