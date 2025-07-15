@@ -2,24 +2,251 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World App</title>
+    <title>Job Application Tracker</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="script.js"></script>
   </head>
-  <body>
-    <h1 id="message">Loading...</h1>
 
-    <script>
-      fetch("/api/hello")
-        .then((response) => response.json())
-        .then((data) => {
-          document.getElementById("message").innerText = data.message;
-        })
-        .catch((err) => {
-          console.error(err);
-          document.getElementById("message").innerText =
-            "Failed to load message";
-        });
-    </script>
+  <body>
+    <header>
+      <div class="logo">
+        <a class="itt" href="#home">
+          <img src="NET.png" width="30" height="30" alt="Logo" />
+          LUMINEXIZ
+        </a>
+      </div>
+      <div class="navigation">
+        <input type="checkbox" id="nav-checkbox" />
+        <label for="nav-checkbox" class="nav-toggle">
+          <img src="open.png" alt="open menu" class="open" />
+          <img src="close.jpg" alt="close menu" class="close" />
+        </label>
+        <ul class="nav-menu">
+          <li><a href="#home-flex">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Home Section with Thought Bubble and Carousel -->
+<div id="home-flex" class="home-flex">
+  <div class="home">
+    <h1>Welcome to LUMINEXIZ</h1>
+    <h2>Your smart assistant for tracking job applications and progress</h2>
+    <a href="login.html">Get Started</a>
+  </div>
+
+  <div class="thought-bubble-carousel">
+    <div class="quote-bubble">
+      <img src="office1.bin" class="carousel-img active" alt="office1" />
+      <img src="office2.jpg" class="carousel-img" alt="office1" />
+      <img src="company1.jpg" class="carousel-img" alt="office1" />
+      <p class="bubble-text">Land your dream job with clarity and confidence.</p> 
+    </div>
+  </div>
+</div>
+    
+<div class="job-section">
+  <div class="section-content jobs">
+    <h2 class="section-heading">🔥 Recommended Jobs</h2>
+    <div id="job-cards" class="cards job-cards"></div>
+    <div class="more-jobs">
+      <a href="jobs.html" class="more-jobs-button">More Jobs</a>
+    </div>
+  </div>
+</div>
+
+    <div id="about" class="content">
+      <div class="text">
+        <h1>About Us</h1>
+        <br />
+        <p>
+          LUMINEXIZ is your personalized assistant for tracking job
+          applications. We help you manage the process, log interactions, and
+          visualize your job search progress. From resume submissions to
+          interview feedback, TrackMyJob keeps everything in one place.
+        </p>
+        <br />
+        <h3>Key Features</h3>
+        <p>Track important job application activities such as:</p>
+        <ul>
+          <li>Job Role & Company Details</li>
+          <li>Application Status (Applied, Interviewed, Offer, Rejected)</li>
+          <li>Important Deadlines</li>
+          <li>Follow-up Notes</li>
+          <li>Dashboard with Visualization</li>
+        </ul>
+        <br />
+        <h3>Who Should Use LUMINEXIZ?</h3>
+        <p>
+          Any job seeker — student, recent graduate, or professional — who wants
+          an organized and easy way to track their career progress.
+        </p>
+      </div>
+      <img src="ct.jpg" class="img" alt="dashboard preview" />
+      <a href="#about" class="btn"></a>
+    </div>
+
+    <div id="contact" class="contactUs">
+      <div class="title">
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="box">
+        <div class="contact form">
+          <h3>Send a message</h3>
+          <form action="">
+            <div class="formBox">
+              <div class="row50">
+                <div class="inputBox">
+                  <span>First Name</span>
+                  <input type="text" placeholder="Fname" />
+                </div>
+                <div class="inputBox">
+                  <span>Last Name</span>
+                  <input type="text" placeholder="Lname" />
+                </div>
+              </div>
+              <div class="row50">
+                <div class="inputBox">
+                  <span>Email</span>
+                  <input type="text" placeholder="Fname12@gmail.com" />
+                </div>
+                <div class="inputBox">
+                  <span>Mobile</span>
+                  <input type="text" placeholder="9484783273" />
+                </div>
+              </div>
+              <div class="row100">
+                <div class="inputBox">
+                  <span>Message</span>
+                  <textarea placeholder="Write your message here..."></textarea>
+                </div>
+              </div>
+              <div class="row100">
+                <div class="inputBox">
+                  <input type="submit" value="Send" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact info">
+          <h3>Contact Info</h3>
+          <div class="infoBox">
+            <div>
+              <span><ion-icon name="location"></ion-icon></span>
+              <p>
+                California State Polytechnic University, Pomona, California<br />USA
+              </p>
+            </div>
+            <div>
+              <span><ion-icon name="mail"></ion-icon></span>
+              <a href="mailto:siddavee08@gmail.com">siddavee08@gmail.com</a>
+            </div>
+            <div>
+              <span><ion-icon name="call"></ion-icon></span>
+              <a href="tel:+919415164418">+1 (840)-231-9578</a>
+            </div>
+            <ul class="sci">
+              <li>
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.413821063972!2d-117.82260529999999!3d34.0585684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c32ea5e3dc4361%3A0x904ae4ed22c91eeb!2sCalifornia%20State%20Polytechnic%20University%2C%20Pomona!5e0!3m2!1sen!2sus!4v1689479239471!5m2!1sen!2sus" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <h3>Quick Links</h3>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Track</h4>
+            <ul>
+              <li><a href="#">Add Application</a></li>
+              <li><a href="#">View Applications</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Export Data</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>About</h4>
+            <ul>
+              <li><a href="#">Our Mission</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Partners</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Account</h4>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h6>&copy; 2025 TrackMyJob. All rights reserved.</h6>
+    </footer>
+
+<script>
+  // Inject scroll-behavior: smooth as inline style with !important
+  const style = document.createElement("style");
+  style.innerHTML = `
+    html {
+      scroll-behavior: smooth !important;
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+
   </body>
 </html>
