@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="NET.png" alt="Luminexiz Logo" />
+          <h1>Dashboard</h1>
+        </div>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="home.html"><i class="fas fa-user"></i> Home</a>
+          </li>
+          <li>
+            <a href="analytics.html"
+              ><i class="fas fa-chart-bar"></i> Analytics</a
+            >
+          </li>
+          <li>
+            <a href="jobs-board.html"><i class="fas fa-list"></i> Jobs Board</a>
+          </li>
+          <li>
+            <a href="documents.html"
+              ><i class="fas fa-file-alt"></i> Documents</a
+            >
+          </li>
+          <li>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+          </li>
+          <li>
+            <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+          </li>
+        </ul>
+        <div class="logout-section">
+          <a href="#" onclick="logout()"
+            ><i class="fas fa-sign-out-alt"></i> Logout</a
+          >
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <!-- Navbar -->
+        <div class="top-navbar">
+          <div class="navbar-left">
+            <img src="NET.png" alt="Logo" class="logo" />
+            <span class="site-name">LUMINEXIZ</span>
+          </div>
+          <div class="navbar-right">
+            <!-- Add Application Button -->
+            <div class="add-button-container">
+              <button id="openFormBtn">+ Add Application</button>
+            </div>
+            <div class="profile-dropdown">
+              <div class="profile-wrapper" onclick="toggleDropdown()">
+                <span id="user-name" style="font-size: 22px"></span>
+                <img
+                  src="profile-icon.jpg"
+                  width="30"
+                  height="30"
+                  class="profile-icon"
+                  alt="profile-icon"
+                />
+              </div>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" onclick="logout()">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Form -->
+        <div id="applicationModal" class="modal">
+          <div class="modal-content">
+            <span class="close-btn" id="closeFormBtn">&times;</span>
+            <h2>Add New Application</h2>
+            <form id="applicationForm">
+              <label for="company">Company<span>*</span></label>
+              <input type="text" id="company" name="company" required />
+
+              <label for="position">Position<span>*</span></label>
+              <input type="text" id="position" name="position" required />
+
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" />
+
+              <label for="link">Application Link</label>
+              <input type="url" id="link" name="link" />
+
+              <label for="resume">Resume Used</label>
+              <input type="text" id="resume" name="resume" />
+
+              <label for="coverLetter">Cover Letter Used</label>
+              <input type="text" id="coverLetter" name="coverLetter" />
+
+              <label for="interviewDate">Interview Date</label>
+              <input type="date" id="interviewDate" name="interviewDate" />
+
+              <label for="followUp">Follow-Up Status</label>
+              <select id="followUp" name="followUp">
+                <option value="none">None</option>
+                <option value="yes">Followed Up</option>
+                <option value="no">Not Yet</option>
+              </select>
+
+              <label for="referral">Referral Name</label>
+              <input type="text" id="referral" name="referral" />
+
+              <label for="status">Status<span>*</span></label>
+              <select id="status" name="status" required>
+                <option value="Applied">Applied</option>
+                <option value="InProgress">InProgress</option>
+                <option value="Interviewed">Interviewed</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Offer">Offer</option>
+              </select>
+
+              <label for="date">Application Date<span>*</span></label>
+              <input type="date" id="date" name="date" required />
+
+              <label for="notes">Notes / Comments</label>
+              <textarea id="notes" name="notes"></textarea>
+
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="filters-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by company or position"
+          />
+
+          <select id="statusFilter">
+            <option value="">All Statuses</option>
+            <option value="Applied">Applied</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Interviewed">Interviewed</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Offer">Offer</option>
+          </select>
+
+          <select id="locationFilter">
+            <option value="">All Locations</option>
+            <!-- Dynamically populate from JS if needed -->
+          </select>
+        </div>
+
+        <!-- Stats cards -->
+        <div class="stats-overview">
+          <div class="stat-card total">
+            <h3>Total Applications</h3>
+            <p id="stat-total">0</p>
+          </div>
+          <div class="stat-card in-progress">
+            <h3>In Progress</h3>
+            <p id="stat-progress">0</p>
+          </div>
+          <div class="stat-card interviews">
+            <h3>Interviews</h3>
+            <p id="stat-interviews">0</p>
+          </div>
+          <div class="stat-card offers">
+            <h3>Offers</h3>
+            <p id="stat-offers">0</p>
+          </div>
+        </div>
+        <section id="applicationCards" class="card-container">
+          <!-- Cards will be loaded here -->
+        </section>
+
+        <!-- Application Details Modal -->
+        <div id="detailsModal" class="details-modal">
+          <div class="details-modal-content">
+            <span class="details-close-button" onclick="closeModal()"
+              >&times;</span
+            >
+            <h2 id="modalCompany"></h2>
+            <p><strong>Position:</strong> <span id="modalPosition"></span></p>
+            <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+            <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+            <p>
+              <strong>Application Date:</strong> <span id="modalDate"></span>
+            </p>
+            <p><strong>Resume Used:</strong> <span id="modalResume"></span></p>
+            <p>
+              <strong>Cover Letter Used:</strong>
+              <span id="modalCoverLetter"></span>
+            </p>
+            <p>
+              <strong>Interview Date:</strong> <span id="modalInterview"></span>
+            </p>
+            <p>
+              <strong>Follow-Up Status:</strong>
+              <span id="modalFollowUp"></span>
+            </p>
+            <p><strong>Referral:</strong> <span id="modalReferral"></span></p>
+            <p><strong>Notes:</strong> <span id="modalNotes"></span></p>
+          </div>
+        </div>
+        <div id="paginationControls" class="pagination-container"></div>
+        <!-- Edit Application Modal -->
+        <div id="editModal" class="editModal">
+          <div class="edit-modal-content">
+            <span class="close-btn" id="editCloseBtn">&times;</span>
+            <h2>Edit Application</h2>
+            <form id="editForm">
+              <input type="hidden" id="editId" />
+
+              <label for="editCompany">Company Name</label>
+              <input type="text" id="editCompany" required />
+
+              <label for="editPosition">Position</label>
+              <input type="text" id="editPosition" required />
+
+              <label for="editLocation">Location</label>
+              <input type="text" id="editLocation" required />
+
+              <label for="editStatus">Status</label>
+              <select id="editStatus" required>
+                <option value="">Select status</option>
+                <option value="Applied">Applied</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Interviewed">Interviewed</option>
+                <option value="Offered">Offered</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+
+              <label for="editDate">Application Date</label>
+              <input type="date" id="editDate" required />
+
+              <label for="editNotes">Notes</label>
+              <textarea id="editNotes" rows="4"></textarea>
+
+              <button type="submit" class="modal-btn">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="dashboard.js"></script>
+</html>

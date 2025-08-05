@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobs Board – LUMINEXIZ</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="jobs-board.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="NET.png" alt="Luminexiz Logo" />
+          <h1>Dashboard</h1>
+        </div>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="dashboard.html"><i class="fas fa-user"></i> Home</a>
+          </li>
+          <li>
+            <a href="analytics.html"
+              ><i class="fas fa-chart-bar"></i> Analytics</a
+            >
+          </li>
+          <li>
+            <a href="jobs-board.html"><i class="fas fa-list"></i> Jobs Board</a>
+          </li>
+          <li>
+            <a href="documents.html"
+              ><i class="fas fa-file-alt"></i> Documents</a
+            >
+          </li>
+          <li>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+          </li>
+          <li>
+            <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+          </li>
+        </ul>
+        <div class="logout-section">
+          <a href="#" onclick="logout()"
+            ><i class="fas fa-sign-out-alt"></i> Logout</a
+          >
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <div class="top-navbar">
+          <div class="navbar-left">
+            <img src="NET.png" alt="Logo" class="logo" />
+            <span class="site-name">Latest Developer Jobs</span>
+          </div>
+          <div class="navbar-right">
+            <div class="profile-dropdown">
+              <div class="profile-wrapper" onclick="toggleDropdown()">
+                <span id="user-name"></span>
+                <img
+                  src="profile-icon.jpg"
+                  width="30"
+                  height="30"
+                  class="profile-icon"
+                  alt="profile"
+                />
+              </div>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" onclick="logout()">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Search -->
+        <div class="search-filters">
+          <div class="dropdown">
+            <input
+              type="text"
+              id="companySearch"
+              placeholder="Search by company..."
+              autocomplete="off"
+              onfocus="showDropdown('company')"
+            />
+            <ul id="companyDropdown" class="dropdown-list"></ul>
+          </div>
+
+          <div class="dropdown">
+            <input
+              type="text"
+              id="locationSearch"
+              placeholder="Search by location..."
+              autocomplete="off"
+              onfocus="showDropdown('location')"
+            />
+            <ul id="locationDropdown" class="dropdown-list"></ul>
+          </div>
+        </div>
+
+        <!-- Jobs Table -->
+        <table class="jobs-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="jobTableBody">
+            <!-- Job rows inserted here -->
+          </tbody>
+        </table>
+        <div id="pagination" class="pagination-container"></div>
+        <!-- Modal -->
+        <div id="descriptionModal" class="modal">
+          <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-content-text"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="jobs-board.js"></script>
+    <script>
+      function toggleDropdown() {
+        document.getElementById("dropdown-menu").classList.toggle("show");
+      }
+
+      function logout() {
+        localStorage.removeItem("username");
+        window.location.href = "index.html";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const userNameSpan = document.getElementById("user-name");
+        userNameSpan.textContent = localStorage.getItem("username") || "Guest";
+      });
+
+      window.addEventListener("click", function (e) {
+        const dropdown = document.getElementById("dropdown-menu");
+        const wrapper = document.querySelector(".profile-wrapper");
+        if (dropdown && !wrapper.contains(e.target)) {
+          dropdown.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>

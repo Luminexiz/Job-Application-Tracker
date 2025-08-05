@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="settings.css" /> -->
+    <link rel="stylesheet" href="dashboard.css" />
+    <style>
+      .main-content {
+        margin-top: 4rem;
+        padding: 30px;
+        color: white;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        color: #00bcd4;
+      }
+
+      .faq-box {
+        background-color: rgb(4, 106, 94);
+        border: 1px solid #00bcd4;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s ease;
+      }
+
+      .faq-box:hover {
+        background-color: rgba(0, 188, 212, 0.1);
+      }
+
+      .faq-question {
+        font-weight: bold;
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-answer {
+        margin-top: 10px;
+        display: none;
+        color: #ccc;
+        font-weight: normal;
+      }
+
+      .arrow {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-box.open .faq-answer {
+        display: block;
+      }
+
+      .faq-box.open .arrow {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="NET.png" alt="Luminexiz Logo" />
+          <h1>Dashboard</h1>
+        </div>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="home.html"><i class="fas fa-user"></i> Home</a>
+          </li>
+          <li>
+            <a href="analytics.html"
+              ><i class="fas fa-chart-bar"></i> Analytics</a
+            >
+          </li>
+          <li>
+            <a href="jobs-board.html"><i class="fas fa-list"></i> Jobs Board</a>
+          </li>
+          <li>
+            <a href="documents.html"
+              ><i class="fas fa-file-alt"></i> Documents</a
+            >
+          </li>
+          <li>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+          </li>
+          <li>
+            <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+          </li>
+        </ul>
+        <div class="logout-section">
+          <a href="#" onclick="logout()"
+            ><i class="fas fa-sign-out-alt"></i> Logout</a
+          >
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <!-- Navbar -->
+        <div class="top-navbar">
+          <div class="navbar-left">
+            <img src="NET.png" alt="Logo" class="logo" />
+            <span class="site-name">LUMINEXIZ</span>
+          </div>
+          <div class="navbar-right">
+            <div class="profile-dropdown">
+              <div class="profile-wrapper" onclick="toggleDropdown()">
+                <span id="user-name" style="font-size: 22px"></span>
+                <img
+                  src="profile-icon.jpg"
+                  width="30"
+                  height="30"
+                  class="profile-icon"
+                  alt="profile-icon"
+                />
+              </div>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" onclick="logout()">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="faq-box">
+          <div class="faq-question">
+            How do I add a job application?
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Go to the Dashboard page and click the "Add Application" button.
+            Fill in the form and click Submit.
+          </div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-question">
+            Can I edit or delete an application later?
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Yes, each card has Edit and Delete buttons to modify or remove
+            entries.
+          </div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-question">
+            How do I upload supporting documents like resumes?
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Navigate to the Documents page, select a file, and click Upload. You
+            can also delete files later.
+          </div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-question">
+            What happens when I log out?
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Logging out clears your session and redirects you to the login page.
+            You can log back in anytime.
+          </div>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-question">
+            I forgot my password. How do I reset it?
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            Go to the Settings page and use the “Change Password” section to set
+            a new password.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.querySelectorAll(".faq-box").forEach((box) => {
+        box.addEventListener("click", () => {
+          box.classList.toggle("open");
+        });
+      });
+
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        sessionStorage.clear();
+        window.location.href = "/login.html";
+      });
+    </script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

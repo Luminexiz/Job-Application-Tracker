@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documents</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="documents.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="NET.png" alt="Luminexiz Logo" />
+          <h1>Dashboard</h1>
+        </div>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="home.html"><i class="fas fa-user"></i> Home</a>
+          </li>
+          <li>
+            <a href="analytics.html"
+              ><i class="fas fa-chart-bar"></i> Analytics</a
+            >
+          </li>
+          <li>
+            <a href="jobs-board.html"><i class="fas fa-list"></i> Jobs Board</a>
+          </li>
+          <li>
+            <a href="documents.html"
+              ><i class="fas fa-file-alt"></i> Documents</a
+            >
+          </li>
+          <li>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+          </li>
+          <li>
+            <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+          </li>
+        </ul>
+        <div class="logout-section">
+          <a href="#" onclick="logout()"
+            ><i class="fas fa-sign-out-alt"></i> Logout</a
+          >
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <!-- Navbar -->
+        <div class="top-navbar">
+          <div class="navbar-left">
+            <img src="NET.png" alt="Logo" class="logo" />
+            <span class="site-name">LUMINEXIZ</span>
+          </div>
+          <div class="navbar-right">
+            <!-- Profile icon -->
+            <div class="profile-dropdown">
+              <div class="profile-wrapper" onclick="toggleDropdown()">
+                <span id="user-name" style="font-size: 22px"></span>
+                <img
+                  src="profile-icon.jpg"
+                  width="30"
+                  height="30"
+                  class="profile-icon"
+                  alt="profile-icon"
+                />
+              </div>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" onclick="logout()">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <h2>📄 Upload Documents</h2>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="document" required />
+        <input type="hidden" id="username" name="username" />
+        <button type="submit">Upload</button>
+      </form>
+      <h3>Your Documents</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Filename</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="documentsTableBody">
+          <!-- Rows will be populated here -->
+        </tbody>
+      </table>
+    </main>
+    </div>
+    <script src="documents.js"></script>
+    <script src="dashboard.js"></script>
+    <!-- <script>
+    document.getElementById("username").value = localStorage.getItem("loggedInUsername");
+    </script> -->
+  </body>
+</html>

@@ -41,16 +41,12 @@ async function fetchJobs() {
 }
 
 window.onload = () => {
-    fetchJobs();
-};
-
-
-window.onload = () => {
+    // 1. Fetch and render jobs
     fetchJobs();
 
+    // 2. Start carousel
     let current = 0;
     const slides = document.querySelectorAll(".carousel-img");
-
     if (slides.length > 0) {
         setInterval(() => {
             slides[current].classList.remove("active");
@@ -58,6 +54,11 @@ window.onload = () => {
             slides[current].classList.add("active");
         }, 3000);
     }
+
+    // 3. Check login and show username
+    const username = localStorage.getItem('username');
+    if (!username) window.location.href = 'login.html';
+    document.getElementById('user-name').textContent = username;
 };
 
 function truncate(text, maxLength = 150) {

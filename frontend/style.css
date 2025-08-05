@@ -14,6 +14,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #1e1e1e;
 }
 
 html {
@@ -27,7 +28,7 @@ html {
 
 /* Home */
 .home-flex {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.8), #02403d2c),
     url(home-bg.jpg) no-repeat fixed bottom / cover;
   display: flex;
   flex-wrap: wrap;
@@ -56,8 +57,8 @@ html {
 
 .home h2 {
   color: #ffff;
-  font-size: 26px;
-  line-height: 3;
+  font-size: 23px;
+  line-height: 5;
   font-family: "Faustina", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -65,8 +66,8 @@ html {
 }
 
 .home a {
-  background-color: #760303 !important;
-  color: #ffff;
+  background-color: #042e26 !important;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.5rem;
   border-radius: 20px;
@@ -76,7 +77,7 @@ html {
 }
 
 .home a:hover {
-  background: #a00000 !important;
+  background: #03bf9c !important;
   transition: all 0.7s ease-out;
 }
 
@@ -91,7 +92,7 @@ html {
 }
 
 .quote-bubble {
-  background-color: #2e2c2c;
+  background-color: #021813;
   color: #000;
   padding: 10px;
   border-radius: 12px;
@@ -206,7 +207,7 @@ header {
 .itt {
   text-align: center;
   display: inline-block;
-  color: #040404;
+  color: #ffffff;
   text-decoration: none;
   font-size: 2.5rem;
   padding: 0 15px;
@@ -224,11 +225,11 @@ header {
 }
 
 .nav-menu li a:hover {
-  color: #760303 !important;
+  color: #03bf9c !important;
 }
 
 .active {
-  background: #760303 !important;
+  background: #042e26 !important;
 }
 
 .active a:hover {
@@ -263,7 +264,7 @@ header {
   }
 
   #nav-checkbox:checked ~ .nav-menu {
-    background: #760303;
+    background: #042e26;
     margin-top: 10px;
     padding: 10px 0;
     border-top: 1px solid #fff;
@@ -295,6 +296,37 @@ header {
   }
 }
 
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between username and icon */
+  cursor: pointer;
+}
+
+.profile-icon {
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.nav-menu .dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #042e26;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.nav-menu .dropdown .dropdown-menu a {
+  font-size: 20px;
+  font-family: "Faustina", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 /*--Jobs--*/
 .section-heading {
   text-align: center;
@@ -314,7 +346,7 @@ header {
   display: block;
   width: 80px;
   height: 4px;
-  background-color: #760303;
+  background-color: #042e26;
   margin: 10px auto 0;
   border-radius: 2px;
 }
@@ -338,6 +370,14 @@ header {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+#loading-jobs {
+  font-family: "Faustina", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
 }
 
 .job-cards .card:hover {
@@ -364,7 +404,7 @@ header {
 
 .more-jobs-button {
   display: inline-block;
-  background-color: #760303;
+  background-color: #042e26;
   color: white;
   text-decoration: none;
   margin-bottom: 20px;
@@ -376,7 +416,7 @@ header {
 }
 
 .more-jobs-button:hover {
-  background-color: #a00000;
+  background-color: #03bf9c;
 }
 
 /*Contact Section*/
@@ -384,9 +424,9 @@ header {
   background: linear-gradient(
     90deg,
     #000000 0%,
-    #1a0000 30%,
-    #1b0505 30%,
-    #4f3d3d 100%
+    #001a15 30%,
+    #051b17 30%,
+    #3d4f4d 100%
   );
   position: relative;
   width: 100%;
@@ -486,7 +526,7 @@ header {
   padding: 10px;
   font-size: 1.1em;
   outline: none;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   font-family: "Faustina", serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -507,7 +547,7 @@ header {
 
 .inputBox input[type="submit"] {
   /* display: inline-block; */
-  background-color: #760303;
+  background-color: #042e26;
   color: white;
   text-decoration: none;
   margin-bottom: 30px;
@@ -520,7 +560,7 @@ header {
 }
 
 .inputBox input[type="submit"]:hover {
-  background-color: #a00000;
+  background-color: #03bf9c;
 }
 
 .inputBox ::placeholder {
@@ -595,7 +635,7 @@ header {
 }
 
 .sci li a:hover {
-  color: #760303;
+  color: #042e26;
 }
 
 .map {
@@ -610,7 +650,7 @@ header {
 /*Responsive*/
 @media (max-width: 991px) {
   .contactUs {
-    background: #4f3d3d;
+    background: #3d4f4d;
     padding: 20px;
   }
   .box {
@@ -693,7 +733,7 @@ ul {
   position: absolute;
   left: 0;
   bottom: -10px;
-  background-color: #760303 !important;
+  background-color: #011712 !important;
   height: 2px;
   box-sizing: border-box;
   width: 50px;
@@ -718,7 +758,7 @@ ul {
 }
 
 .footer-col ul li a:hover {
-  color: #760303 !important;
+  color: #03bf9c !important;
   padding-left: 10px;
 }
 

@@ -1,0 +1,156 @@
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: #111;
+  color: #fff;
+  font-family: "Faustina", serif;
+  border: 1px solid teal;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.jobs-table th,
+.jobs-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #00ffff33;
+}
+
+.jobs-table th {
+  background-color: #02403d;
+  color: cyan;
+  font-weight: bold;
+}
+
+.jobs-table tr:hover {
+  background-color: #023a3a;
+}
+
+.jobs-table a {
+  color: #00ffff;
+  text-decoration: underline;
+}
+
+/* Modal Styling */
+.modal {
+  margin: 2% auto;
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #111;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid teal;
+  width: 60%;
+  color: white;
+  font-family: "Faustina", serif;
+}
+
+.view-description-btn {
+  background-color: #004141;
+  margin-top: 10px;
+  padding: 5px 7px 5px 7px;
+  border: 1px solid #004141;
+  border-radius: 5px;
+}
+
+.view-description-btn:hover {
+  background-color: #059f9f;
+  transform: scale(1.05);
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+.pagination-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.pagination-btn {
+  background-color: teal;
+  color: white;
+  border: none;
+  margin: 0 5px;
+  padding: 8px 12px;
+  font-family: "Faustina", serif;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination-btn:hover {
+  background-color: #00cccc;
+}
+
+.pagination-btn.active {
+  background-color: #022d2d;
+  font-weight: bold;
+}
+
+.search-filters {
+  margin: 4rem 0 0rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.search-filters input {
+  padding: 0.6rem 1rem;
+  border: 1px solid teal;
+  border-radius: 4px;
+  font-family: "Faustina", serif;
+  width: 250px;
+  background-color: #022d2d;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background-color: #111;
+  border: 1px solid teal;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background-color: teal;
+  color: #fff;
+}

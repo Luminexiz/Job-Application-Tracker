@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signupstyle.css" />
+    <title>Sign Up Page</title>
+  </head>
+
+  <body>
+    <section>
+      <div class="imgBx">
+        <img src="cta-bg.jpg" alt="" />
+      </div>
+      <div class="contentBx">
+        <div class="formBx">
+          <h2>SIGN UP</h2>
+          <form id="signupForm" method="POST" action="/signup">
+            <div class="inputBx">
+              <span>Email</span>
+              <input
+                type="text"
+                name="email"
+                placeholder="example@domain.com"
+              />
+            </div>
+            <div class="inputBx">
+              <span>Username</span>
+              <input type="text" name="username" placeholder="YourUsername" />
+            </div>
+            <div class="inputBx password-wrapper">
+              <span>New Password</span>
+              <input
+                type="password"
+                name="password"
+                id="newPassword"
+                placeholder="Enter password"
+              />
+              <span
+                class="toggle-password"
+                onclick="togglePassword('newPassword', 'newEyeOpen', 'newEyeClosed')"
+              >
+                <!-- Eye Open SVG -->
+                <svg
+                  id="newEyeOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#999"
+                  viewBox="0 0 24 24"
+                  style="display: none"
+                >
+                  <path
+                    d="M12 4.5C7.45 4.5 3.73 7.61 1.2 12c2.53 4.39 6.25 7.5 10.8 7.5s8.27-3.11 10.8-7.5c-2.53-4.39-6.25-7.5-10.8-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"
+                  />
+                  <circle cx="12" cy="12" r="2.5" />
+                </svg>
+                <!-- Eye Closed SVG -->
+                <svg
+                  id="newEyeClosed"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#999"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M2 12c2.93-4.91 7.07-8 10-8s7.07 3.09 10 8c-2.93 4.91-7.07 8-10 8s-7.07-3.09-10-8zm10 5a5 5 0 0 0 5-5 5 5 0 1 0-10 0 5 5 0 0 0 5 5z"
+                  />
+                  <line
+                    x1="4"
+                    y1="4"
+                    x2="20"
+                    y2="20"
+                    stroke="#999"
+                    stroke-width="2"
+                  />
+                </svg>
+              </span>
+              <!-- <div id="password-requirements" class="password-hint">
+                <p id="length" class="invalid">➤ At least 6 characters</p>
+                <p id="uppercase" class="invalid">
+                  ➤ At least 1 uppercase letter
+                </p>
+                <p id="number" class="invalid">➤ At least 1 number</p>
+                <p id="special" class="invalid">
+                  ➤ At least 1 special character
+                </p>
+              </div> -->
+            </div>
+            <div class="inputBx password-wrapper">
+              <span>Confirm Password</span>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+              />
+              <span
+                class="toggle-password"
+                onclick="togglePassword('confirmPassword', 'confirmEyeOpen', 'confirmEyeClosed')"
+              >
+                <!-- Eye Open SVG -->
+                <svg
+                  id="confirmEyeOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#999"
+                  viewBox="0 0 24 24"
+                  style="display: none"
+                >
+                  <path
+                    d="M12 4.5C7.45 4.5 3.73 7.61 1.2 12c2.53 4.39 6.25 7.5 10.8 7.5s8.27-3.11 10.8-7.5c-2.53-4.39-6.25-7.5-10.8-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"
+                  />
+                  <circle cx="12" cy="12" r="2.5" />
+                </svg>
+                <!-- Eye Closed SVG -->
+                <svg
+                  id="confirmEyeClosed"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="#999"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M2 12c2.93-4.91 7.07-8 10-8s7.07 3.09 10 8c-2.93 4.91-7.07 8-10 8s-7.07-3.09-10-8zm10 5a5 5 0 0 0 5-5 5 5 0 1 0-10 0 5 5 0 0 0 5 5z"
+                  />
+                  <line
+                    x1="4"
+                    y1="4"
+                    x2="20"
+                    y2="20"
+                    stroke="#999"
+                    stroke-width="2"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="inputBx">
+              <button id="signupBtn" type="submit" disabled>Sign Up</button>
+            </div>
+            <div class="inputBx">
+              <label>
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="signup.js"></script>
+  </body>
+</html>
