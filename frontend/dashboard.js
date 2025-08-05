@@ -1,4 +1,8 @@
 // ========== GLOBAL VARIABLES ==========
+const baseURL = window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "http://3.144.17.159:3000";
+
 let currentPage = 1;
 const itemsPerPage = 6;
 let applications = [];
@@ -87,7 +91,7 @@ async function handleAdd(e) {
         notes: form.notes.value
     };
 
-    const res = await fetch("http://localhost:3000/add-application", {
+    const res = await fetch(`${baseURL}/add-application`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -117,7 +121,7 @@ async function handleEdit(e) {
         description: document.getElementById("editNotes").value
     };
 
-    const res = await fetch(`http://localhost:3000/edit-application/${id}`, {
+    const res = await fetch(`${baseURL}/edit-application/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -135,7 +139,7 @@ async function handleEdit(e) {
 // ========== LOAD APPLICATIONS FROM SERVER ==========
 async function loadApplications() {
     const username = localStorage.getItem("username");
-    const res = await fetch(`http://localhost:3000/get-applications/${username}`);
+    const res = await fetch(`${baseURL}/get-applications/${username}`);
     applications = await res.json();
     updateStats(applications);
     populateLocationFilter(applications);
@@ -257,7 +261,7 @@ document.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-btn")) {
         const id = e.target.dataset.id;
         if (confirm("Are you sure you want to delete this application?")) {
-            fetch(`http://localhost:3000/delete-application/${id}`, { method: "DELETE" })
+            fetch(`${baseURL}/delete-application/${id}`, { method: "DELETE" })
                 .then(() => loadApplications())
                 .catch(err => console.error("Delete failed", err));
         }

@@ -1,3 +1,7 @@
+const baseURL = window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "http://3.144.17.159:3000";
+
 document.addEventListener("DOMContentLoaded", () => {
     // Display username from localStorage
     const userNameSpan = document.getElementById("user-name");
@@ -200,7 +204,7 @@ async function loadAnalytics() {
     container.innerHTML = "";
 
     try {
-        const res = await fetch(`http://localhost:3000/get-analytics/${username}`);
+        const res = await fetch(`${baseURL}/get-analytics/${username}`);
         const stats = await res.json();
 
         const types = [
@@ -223,7 +227,7 @@ async function loadAnalytics() {
         });
 
         // Fetch over-time data
-        fetch(`http://localhost:3000/get-applications-timeline/${username}`)
+        fetch(`${baseURL}/get-applications-timeline/${username}`)
             .then(async res => {
                 const contentType = res.headers.get("content-type");
                 if (!contentType || !contentType.includes("application/json")) {
@@ -235,7 +239,7 @@ async function loadAnalytics() {
             .catch(err => console.error('Timeline chart error:', err));
 
         // Fetch over company data
-        fetch(`http://localhost:3000/get-applications-by-company/${username}`)
+        fetch(`${baseURL}/get-applications-by-company/${username}`)
             .then(res => res.json())
             .then(data => renderApplicationsByCompanyChart(data))
             .catch(err => console.error("Company chart error:", err));
